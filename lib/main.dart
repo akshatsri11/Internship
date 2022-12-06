@@ -20,12 +20,29 @@ class MyApp extends StatelessWidget {
           backgroundColor: const Color.fromARGB(255, 252, 232, 247),
           title: const Text(
             "Puzzels",
-            style: TextStyle(color: Colors.pink),
+            style: TextStyle(color: Colors.pink, fontSize: 25),
           ),
+          elevation: 0,
+          leading: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CircleAvatar(
+              radius: 30,
+              backgroundImage: AssetImage(
+                'lib/images/pic5.jpg',
+              ),
+            ),
+          ),
+          actions: [
+            Image(
+              image: AssetImage('lib/icons/filter.png'),
+              fit: BoxFit.fill,
+            )
+          ],
         ),
         body: const HomePage(),
         bottomNavigationBar: BottomNavigationBar(
           iconSize: 30,
+
           unselectedItemColor: Colors.black,
           type: BottomNavigationBarType.fixed,
           selectedItemColor: const Color.fromARGB(255, 252, 232, 247),
@@ -36,7 +53,8 @@ class MyApp extends StatelessWidget {
               icon: Icon(Icons.home),
               label: '',
             ),
-            const BottomNavigationBarItem(icon: Icon(Icons.web), label: ''),
+            const BottomNavigationBarItem(
+                icon: Icon(Icons.south_america_sharp), label: ''),
             const BottomNavigationBarItem(
                 icon: Icon(Icons.calendar_month), label: ''),
             const BottomNavigationBarItem(
@@ -59,41 +77,160 @@ class HomePage extends StatelessWidget {
       children: [
         Container(
           color: const Color.fromARGB(255, 252, 232, 247),
-          height: MediaQuery.of(context).size.height / 3.5,
-          child: ListView(scrollDirection: Axis.horizontal, children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10, 50, 10, 50),
-              child: Container(
-                  height: 10,
-                  width: 100,
-                  child: Image.asset(
-                    "lib/images/pic4.jpg",
-                    fit: BoxFit.cover,
-                  )),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(10, 60, 10, 60),
-              child: Card(
-                child: Container(
-                    width: 100,
-                    child: Image.asset(
-                      "lib/images/pic6.jpg",
-                      fit: BoxFit.fill,
-                    )),
+          height: 220,
+          child: SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(children: [
+              Container(
+                child: Stack(children: [
+                  Opacity(
+                    opacity: 0.3,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image.asset(
+                          "lib/images/pic4.jpg",
+                        ),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 90,
+                    top: 50,
+                    child: Icon(
+                      Icons.favorite_rounded,
+                      size: 50,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Positioned(
+                    top: 100,
+                    left: 90,
+                    child: Text(
+                      "20",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 40),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    left: 80,
+                    child: Container(
+                        alignment: Alignment.center,
+                        height: 20,
+                        width: 70,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(40)),
+                        child: Text(
+                          "Likes",
+                          style: TextStyle(fontSize: 15),
+                        )),
+                  )
+                ]),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                  width: 130, child: Image.asset("lib/images/pic1.jpg")),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                  width: MediaQuery.of(context).size.width / 3,
-                  child: Image.asset("lib/images/pic2.jpg")),
-            ),
-          ]),
+              Container(
+                child: Stack(children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Image.asset(
+                        "lib/images/pic6.jpg",
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 45,
+                    bottom: 0,
+                    child: Container(
+                        alignment: Alignment.center,
+                        height: 20,
+                        width: 70,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(40)),
+                        child: Row(
+                          children: [
+                            Text(
+                              "   Tony",
+                              style: TextStyle(fontSize: 15),
+                            ),
+                            Image.asset("lib/images/tick.png")
+                          ],
+                        )),
+                  )
+                ]),
+              ),
+              Container(
+                child: Stack(children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image.asset("lib/images/pic1.jpg")),
+                  ),
+                  Positioned(
+                    left: 45,
+                    bottom: 0,
+                    child: Container(
+                        alignment: Alignment.center,
+                        height: 20,
+                        width: 80,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(40)),
+                        child: Row(
+                          children: [
+                            Text(
+                              "  James",
+                              style: TextStyle(fontSize: 15),
+                            ),
+                            Image.asset("lib/images/tick.png")
+                          ],
+                        )),
+                  )
+                ]),
+              ),
+              Container(
+                child: Stack(children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: Image.asset("lib/images/pic2.jpg")),
+                  ),
+                  Positioned(
+                    left: 55,
+                    bottom: 0,
+                    child: Container(
+                        alignment: Alignment.center,
+                        height: 20,
+                        width: 80,
+                        decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(40)),
+                        child: Row(
+                          children: [
+                            Text(
+                              "  Jordan",
+                              style: TextStyle(fontSize: 15),
+                            ),
+                            Image.asset("lib/images/tick.png")
+                          ],
+                        )),
+                  )
+                ]),
+              ),
+            ]),
+          ),
+        ),
+        Container(
+          height: 15,
+          color: const Color.fromARGB(255, 252, 232, 247),
         ),
         Stack(children: [
           Container(
@@ -103,8 +240,16 @@ class HomePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
             child: Container(
+              height: 60,
               decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(40)),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(40),
+                  boxShadow: [
+                    new BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 5,
+                    ),
+                  ]),
               child: TextField(
                 decoration: InputDecoration(
                     border: OutlineInputBorder(
@@ -125,9 +270,17 @@ class HomePage extends StatelessWidget {
                     'lib/images/pic2.jpg',
                   ),
                 ),
-                title: Text(
-                  "Jordan",
-                  style: TextStyle(fontSize: 20),
+                title: Row(
+                  children: [
+                    Text(
+                      "Jordan ",
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    Image.asset(
+                      "lib/images/tick.png",
+                      height: 20,
+                    )
+                  ],
                 ),
                 subtitle: Text(
                   "Hii!",
@@ -165,9 +318,17 @@ class HomePage extends StatelessWidget {
                     'lib/images/pic3.jpg',
                   ),
                 ),
-                title: Text(
-                  "Tim",
-                  style: TextStyle(color: Colors.grey, fontSize: 20),
+                title: Row(
+                  children: [
+                    Text(
+                      "Tim ",
+                      style: TextStyle(color: Colors.grey, fontSize: 20),
+                    ),
+                    Image.asset(
+                      "lib/images/tick.png",
+                      height: 20,
+                    )
+                  ],
                 ),
                 subtitle: Text("Hii!",
                     style: TextStyle(color: Colors.grey, fontSize: 15)),
